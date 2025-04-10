@@ -101,6 +101,14 @@ class StreamPeerConnection(
   fun initialize(peerConnection: PeerConnection) {
     logger.d { "[initialize] #sfu; #$typeTag; peerConnection: $peerConnection" }
     this.connection = peerConnection
+
+    this.connection.addTransceiver(MediaStreamTrack.MediaType.MEDIA_TYPE_VIDEO, RtpTransceiver.RtpTransceiverInit(
+      RtpTransceiver.RtpTransceiverDirection.RECV_ONLY // or SEND_ONLY, RECV_ONLY, INACTIVE
+    ))
+
+    this.connection.addTransceiver(MediaStreamTrack.MediaType.MEDIA_TYPE_AUDIO, RtpTransceiver.RtpTransceiverInit(
+      RtpTransceiver.RtpTransceiverDirection.RECV_ONLY // or SEND_ONLY, RECV_ONLY, INACTIVE
+    ))
   }
 
   /**

@@ -16,7 +16,6 @@
 
 package io.getstream.webrtc.sample.compose
 
-import android.Manifest
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -42,8 +41,6 @@ import io.getstream.webrtc.sample.compose.webrtc.sessions.WebRtcSessionManagerIm
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-
-    requestPermissions(arrayOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO), 0)
 
     val sessionManager: WebRtcSessionManager = WebRtcSessionManagerImpl(
       context = this,

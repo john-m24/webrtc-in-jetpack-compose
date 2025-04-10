@@ -25,15 +25,6 @@ import io.getstream.webrtc.sample.compose.ui.theme.Disabled
 import io.getstream.webrtc.sample.compose.ui.theme.Primary
 
 sealed class CallAction {
-  data class ToggleMicroPhone(
-    val isEnabled: Boolean
-  ) : CallAction()
-
-  data class ToggleCamera(
-    val isEnabled: Boolean
-  ) : CallAction()
-
-  object FlipCamera : CallAction()
 
   object LeaveCall : CallAction()
 }
@@ -67,24 +58,6 @@ fun buildDefaultCallControlActions(
   )
 
   return listOf(
-    VideoCallControlAction(
-      icon = microphoneIcon,
-      iconTint = Color.White,
-      background = Primary,
-      callAction = CallAction.ToggleMicroPhone(callMediaState.isMicrophoneEnabled)
-    ),
-    VideoCallControlAction(
-      icon = cameraIcon,
-      iconTint = Color.White,
-      background = Primary,
-      callAction = CallAction.ToggleCamera(callMediaState.isCameraEnabled)
-    ),
-    VideoCallControlAction(
-      icon = painterResource(id = R.drawable.ic_camera_flip),
-      iconTint = Color.White,
-      background = Primary,
-      callAction = CallAction.FlipCamera
-    ),
     VideoCallControlAction(
       icon = painterResource(id = R.drawable.ic_call_end),
       iconTint = Color.White,
